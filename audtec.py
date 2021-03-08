@@ -11,7 +11,7 @@ tabela = soup.find("div", {"class":"pagina"})
 todos_trs = tabela.findAll("tr")
 
 periodo_desejado = []
-res = []
+dados = []
 
 for numero in range(104,len(todos_trs)):  
    trs_filtrados = todos_trs[numero]
@@ -22,9 +22,11 @@ for tr in periodo_desejado:
     row = [d.text.strip() for d in td]
     
     if row:
-     res.append(row)
+     dados.append(row)
 
-df = pd.DataFrame(res, columns=["Vigência", "Dispositivo legal", "Valor"])
+print(dados)
+
+df = pd.DataFrame(dados, columns=["Vigência", "Dispositivo legal", "Valor"])
 df.to_csv("Salário Mínimo.csv", index=False, encoding='utf8')
 
 
