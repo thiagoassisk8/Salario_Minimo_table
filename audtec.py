@@ -23,10 +23,9 @@ for tr in periodo_desejado:
     
     if row:
      dados.append(row)
-
-print(dados)
-
+     
 df = pd.DataFrame(dados, columns=["Vigência", "Dispositivo legal", "Valor"])
 df.to_csv("Salário Mínimo.csv", index=False, encoding='utf8')
+
 
 
