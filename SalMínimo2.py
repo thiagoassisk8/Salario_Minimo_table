@@ -14,6 +14,14 @@ todos_trs = tabela.findAll("tr")
 dados = []
 PrimeiraTabela = []
 
+def filtrartabela(novosdados,array,de,para):
+   
+   for i in range(de,para):
+      # print(dados)
+      return array.append(novosdados[i])
+      
+      
+
 
 #    trs_filtrados = todos_trs[numero]
 #    PrimeiraTabela.append(trs_filtrados)
@@ -26,12 +34,14 @@ for tr in todos_trs:
      
     if row:
      dados.append(row)
-      
-for i in range(1,26):
-   PrimeiraTabela.append(dados[i])
+
+dadosfiltrados = filtrartabela(dados,PrimeiraTabela,2,26)
+
+# for i in range(1,26):
+   # PrimeiraTabela.append(dados[i])
 
 
-df = pd.DataFrame(PrimeiraTabela,columns=['Ano',"Salário Mínimo", "Salário Referência", "Reajuste Salário Mínimo","Reajuste Beneficio Acima SM",'Teto Máximo de Contribuição','Vigência'])
+df = pd.DataFrame(dadosfiltrados,columns=['Ano',"Salário Mínimo", "Salário Referência", "Reajuste Salário Mínimo","Reajuste Beneficio Acima SM",'Teto Máximo de Contribuição','Vigência'])
 df.to_csv("Salário Mínimo 2000 a 2021.csv", index=False, encoding='utf8')
 print('CSV concluído')
 
